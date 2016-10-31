@@ -1,0 +1,12 @@
+<ion-view view-title="Beste øl">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="bestBeer in bestBeers" type="item-text-wrap">
+        <span data-ng-if="bestBeer.addTrophy" class="ion-trophy energized" style="font-size: 1.7em"></span>
+        <span>{{bestBeer.name}}</span>
+        <p>{{bestBeer.abv}} %</p>
+        <span class="badge" style="font-size: 1.7em">{{bestBeer.points}}</span>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

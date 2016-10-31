@@ -1,0 +1,11 @@
+<ion-view view-title="Ølhund">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="beerDog in beerDogs" type="item-text-wrap">
+        <span data-ng-if="beerDog.addTrophy" class="ion-trophy energized" style="font-size: 1.7em"></span>
+        <span style="font-size: 1.2em">{{beerDog.name}}</span>
+        <span class="badge" style="font-size: 1.7em">{{beerDog.points}}</span>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

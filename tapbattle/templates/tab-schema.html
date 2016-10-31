@@ -1,0 +1,40 @@
+<ion-view view-title="Skjema">
+
+  <ion-content class="stable-bg">
+    <div class="row block">
+      <label class="item item-input item-select calm-border">
+        <div class="input-label">
+          <span class="ion-person" style="font-size: 1.4em"></span>
+          Velg navn
+          <select
+            data-ng-model="schema.drinkerId"
+            data-ng-options="drinker.id as drinker.value for drinker in serverValues.drinkers"
+            data-ng-change="setDrinker(schema.drinkerId)">
+          </select>
+        </div>
+      </label>
+      <!--<br/>
+      <a class="google-sign-in button button-block" ng-click="googleSignIn()">Logg inn med Google</a>-->
+    </div>
+    <div class="row responsive-lg" data-ng-repeat="brewery in serverValues.breweries">
+      <div class="col col-75">
+        <h4>
+          {{brewery.type}} <span class="brewery-abv">{{brewery.abv}}%</span> <span class="brewery-person">{{brewery.value}}</span>
+        </h4>
+      </div>
+      <div class="col">
+        <label class="item item-input item-select" data-ng-class="{ 'assertive-border': !hasRating(brewery.id)}">
+          <div class="input-label">
+            Din karakter: {{brewery.rating}}
+
+            <select
+              data-ng-model="brewery.rating"
+              data-ng-options="rating as rating for rating in availableRatings"
+              data-ng-change="setRating(brewery.id, brewery.rating)">
+            </select>
+          </div>
+        </label>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

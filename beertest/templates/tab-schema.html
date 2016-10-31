@@ -1,0 +1,63 @@
+<ion-view view-title="Skjema">
+
+  <ion-content class="stable-bg">
+    <div class="row block">
+      <label class="item item-input item-select calm-border">
+        <div class="input-label">
+          <span class="ion-person" style="font-size: 1.4em"></span>
+          Velg ølhund
+          <select
+            data-ng-model="schema.drinkerId"
+            data-ng-options="drinker.id as drinker.value for drinker in serverValues.drinkers"
+            data-ng-change="setDrinker(schema.drinkerId)">
+          </select>
+        </div>
+      </label>
+      <br/>
+    </div>
+    <div class="row responsive-lg" data-ng-repeat="answer in schema.answers">
+      <div class="col col-10">
+        <h2 class="text-center">
+          {{answer.questionId}}
+        </h2>
+      </div>
+      <div class="col">
+        <label class="item item-input item-select" data-ng-class="{ 'assertive-border': !answer.breweryId}">
+          <div class="input-label">
+            Bryggeri
+
+            <select
+              data-ng-model="answer.breweryId"
+              data-ng-options="brewery.id as brewery.value for brewery in serverValues.breweries"
+              data-ng-change="setBrewery(answer.questionId, answer.breweryId)">
+            </select>
+          </div>
+        </label>
+      </div>
+      <div class="col">
+        <label class="item item-input item-select" data-ng-class="{ 'assertive-border': !answer.abvId}">
+          <div class="input-label">
+            Styrke
+            <select
+              data-ng-model="answer.abvId"
+              data-ng-options="abv.id as abv.value for abv in serverValues.abvs"
+              data-ng-change="setAbv(answer.questionId, answer.abvId)">
+            </select>
+          </div>
+        </label>
+      </div>
+      <div class="col">
+        <label class="item item-input item-select" data-ng-class="{ 'assertive-border': !answer.rating}">
+          <div class="input-label">
+            Din karakter
+            <select
+              data-ng-model="answer.rating"
+              data-ng-options="rating as rating for rating in availableRatings"
+              data-ng-change="setRating(answer.questionId, answer.rating)">
+            </select>
+          </div>
+        </label>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
