@@ -4,7 +4,7 @@ angular.module('starter.services', [])
 
     function getAll() {
       var deferred = $q.defer();
-      $http.get('http://sonjainge.com/api/beerdog.php')
+      $http.get('http://sonjainge.com/api/beerdog.php?eventid=5')
         .then(ok)
         .then(failed)
 
@@ -28,7 +28,7 @@ angular.module('starter.services', [])
 
     function getAll() {
       var deferred = $q.defer();
-      $http.get('http://sonjainge.com/api/beerbest.php')
+      $http.get('http://sonjainge.com/api/beerbest.php?eventid=5')
         .then(ok)
         .then(failed)
 
@@ -64,7 +64,7 @@ angular.module('starter.services', [])
       var deferred = $q.defer();
 
       if (!_serverValues || angular.equals(_serverValues, {})) {
-        $http.get('http://sonjainge.com/api/data.php')
+        $http.get('http://sonjainge.com/api/data.php?eventid=5')
           .then(ok)
           .then(failed);
       } else {
@@ -84,6 +84,7 @@ angular.module('starter.services', [])
     }
 
     function save(userValues) {
+      userValues.eventId = "5";
       var deferred = $q.defer();
 
       if (!_.isEmpty(userValues.drinkerId)) {
