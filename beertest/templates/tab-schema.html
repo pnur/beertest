@@ -28,7 +28,7 @@
 
             <select
               data-ng-model="answer.breweryId"
-              data-ng-options="brewery.id as brewery.value for brewery in serverValues.breweries"
+              data-ng-options='brewery.id as (brewery.value + " - " + brewery.name) for brewery in serverValues.breweries'
               data-ng-change="setBrewery(answer.questionId, answer.breweryId)">
             </select>
           </div>
